@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    P:<input type="text" id="p"><br>
+    R: <input type="text" id="r"><br>
+    T: <input type="text" id="t"><br>
+    <button id="mybutton"> click</button>
+    <script>
+        $(document).ready(function(){
+            $("#mybutton").click(function(){
+                var p =$("#p").val()
+                var r = $("#r").val()
+                var t = $("#t").val()
+                $.ajax({
+                    type:"GET",
+                    url:"1.jsp?p="+p+"&r="+r+"&t="+t,
+                    success:function(data,result)
+                    {
+                        alert("SI is"+data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

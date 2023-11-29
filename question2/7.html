@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form method="post">
+        num1:<input type="text" id="num1"><br>
+        num2:<input type="text" id="num2"><br>
+        power: <p id="one"></p>
+        fact: <p id="two"></p>
+    <button id="mybutton"> click</button>
+    </form>
+    <script>
+        $(document).ready(function(){
+            $("#mybutton").click(function(){
+                $.ajax({
+                    type:"post",
+                    url:"7.jsp",
+                    data:
+                    {
+                        num1:$("#num1").val(),
+                        num2:$("#num2").val()
+                    },
+                    success:function(data,result)
+                    {
+                        alert(data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

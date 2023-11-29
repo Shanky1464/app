@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <form action="" method="post">
+        P:<input type="text" id="p"><br>
+        R: <input type="text" id="r"><br>
+        T: <input type="text" id="t"><br>
+    <button id="mybutton"> click</button>
+    </form>
+    <script>
+        $(document).ready(function(){
+            $("#mybutton").click(function(){
+                $.ajax({
+                    type:"post",
+                    url:"1.jsp",
+                    data:
+                    {
+                        p : $("#p").val(),
+                        r : $("#r").val(),
+                        t : $("#t").val(),
+                    },
+                    success:function(data,result)
+                    {
+                        alert("SI is"+data);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
