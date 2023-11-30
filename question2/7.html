@@ -27,7 +27,10 @@
                     },
                     success:function(data,result)
                     {
-                        alert(data);
+                        var data1=JSON.parse(data.toString());
+                        //$("#one").html(data1.power);
+                        //$("#two").html(data1.fact);
+                        alert(data1.power);
                     }
                 });
             });
