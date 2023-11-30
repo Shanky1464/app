@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Hidden Frame POST Example with jQuery</title>
+    <style>
+        /* Hide the iframe */
+        #hiddenFrame {
+            display: none;
+        }
+    </style>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Your main content goes here -->
+
+    <!-- Hidden iframe -->
+    <iframe id="hiddenFrame"></iframe>
+
+    <script>
+        // Function to make a POST request using jQuery
+        function postData(url, data) {
+            return $.ajax({
+                url: url,
+                type: 'POST',
+                contentType: 'application/json', // Adjust the content type as needed
+                data: JSON.stringify(data),
+            });
+        }
+
+        // Example POST request
+        const postUrl = "post.jsp";
+        const postDataToSend = {
+            key1: 'value1',
+            key2: 'value2',
+        };
+
+        // Make the POST request when the page loads
+        $(document).ready(function () {
+            postData(postUrl, postDataToSend)
+                .done(function (response) {
+                    // Do something with the response if needed
+                    console.log('POST request successful', response);
+                })
+                .fail(function (error) {
+                    console.error('Error making POST request', error);
+                });
+        });
+    </script>
+
+</body>
+
+</html>
